@@ -458,10 +458,10 @@ class ImageTagging:
 
                 return output_array
 
-    def predictFace(self):
+    def predictFace(self, sent_images_array):
         def load_image_file(img_src, mode = 'RGB'):
 
-            response = requests.get(img_src)
+            response = req.get(img_src)
             im = Image.open(BytesIO(response.content))
             width, height = im.size
             if mode:
@@ -473,7 +473,7 @@ class ImageTagging:
                 return [_trim_css_to_bounds_self(face_recognition.api._rect_to_css(face.rect), img.shape) for face in face_recognition.api._raw_face_locations(img, number_of_times_to_upsample, "cnn")]
             else:
                 return [_trim_css_to_bounds_self(face_recognition.api._rect_to_css(face), img.shape) for face in face_recognition.api._raw_face_locations(img, number_of_times_to_upsample, model)]
-
+        output_array = []
         for input_image_src in sent_images_array:
             image, width, height = load_image_file(input_image_src)
 
