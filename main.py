@@ -26,11 +26,13 @@ custom = detector.CustomObjects(person=True)
 # get valid image src data
 result = db_send_update_from_file(conn, "src/data/SQL/get_image_url.sql")
 img_src_array = [row[0] for row in result if row[0] is not None and len(row[0]) > 10]
+print(img_src_array)
 for img_src in img_src_array:
 	response = requests.get(img_src)
 	image = Image.open(BytesIO(response.content))
 	if image.mode != 'RGB':
 		img_src_array.remove(img_src)
+print('valid images {} '.format(len(img_src_array)))
 
 # recognize image objects
 prediction_output_array = prediction.predictMultipleImages(img_src_array, input_type="stream")
@@ -81,9 +83,9 @@ import json
 df_json = json.loads(df_insert.to_json(orient='records'))
 
 # load image output data
-db_send_update_from_file(conn, "src/data/SQL/create_image_tmp_table.sql")
-for json in df_json:
-	print(json)
-	db_send_update_from_file(conn, "src/data/SQL/insert_image_output.sql", json)
-print(pd.read_sql_query(con = conn, sql = 'select * from smartdata_pro.image;'))
+#db_send_update_from_file(conn, "src/data/SQL/create_image_tmp_table.sql")
+#for json in df_json:
+#	print(json)
+#	db_send_update_from_file(conn, "src/data/SQL/insert_image_output.sql", json)
+#print(pd.read_sql_query(con = conn, sql = 'select * from smartdata_pro.image;'))
 # print(db_get_query_from_file(conn, "src/data/SQL/check.sql"))
