@@ -1,1 +1,1 @@
-CREATE TEMP TABLE image (Col1 varchar, Col2 varchar);
+CREATE TABLE smartdata_pro.image (img_url varchar, tags varchar);

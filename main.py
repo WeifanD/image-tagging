@@ -84,5 +84,5 @@ db_send_update_from_file(conn, "src/data/SQL/create_image_tmp_table.sql")
 for json in df_json:
 	print(json)
 	db_send_update_from_file(conn, "src/data/SQL/insert_image_output.sql", json)
-print(pd.read_sql_query(con = conn, sql = 'select * from image;'))
+print(pd.read_sql_query(con = conn, sql = 'select * from smartdata_pro.image;'))
 # print(db_get_query_from_file(conn, "src/data/SQL/check.sql"))
