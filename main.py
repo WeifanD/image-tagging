@@ -47,7 +47,8 @@ for dict1 in detector_output_array:
 			detector_output_array.remove(dict1)
 			prediction_output_array.remove(dict2)
 if len(new_dicts) > 0:
-	output_array = new_dicts.extend(detector_output_array.extend(prediction_output_array))
+        print(new_dicts, detector_output_array, prediction_output_array)
+        output_array = new_dicts.extend(detector_output_array.extend(prediction_output_array))
 else:
 	output_array = detector_output_array + prediction_output_array
 

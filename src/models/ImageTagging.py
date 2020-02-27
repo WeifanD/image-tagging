@@ -291,6 +291,7 @@ class ImageTagging:
         output_array = []
 
         for image_input in sent_images_array:
+            print(image_input)
             image_src = image_input
             prediction_results = []
             prediction_probabilities = []
@@ -335,6 +336,7 @@ class ImageTagging:
                     each_image_details["predictions"] = prediction_results
                     # each_image_details["percentage_probabilities"] = prediction_probabilities
                     output_array.append(each_image_details)
+        print(output_array)
 
         return output_array
 
@@ -454,7 +456,7 @@ class ImageTagging:
                         each_image_details["predictions"] = prediction_results
                         # each_image_details["percentage_probabilities"] = prediction_probabilities
                         output_array.append(each_image_details)
-
+                print(output_array)
 
                 return output_array
 
@@ -467,6 +469,10 @@ class ImageTagging:
             if mode:
                 im = im.convert(mode)
             return np.array(im), width, height
+        
+        def _trim_css_to_bounds_self(css, image_shape):
+
+            return max(css[3], 0), max(css[0], 0), min(css[1], image_shape[1]), min(css[2], image_shape[0])
 
         def face_locations_self(img, number_of_times_to_upsample=1, model="hog"):
             if model == "cnn":
@@ -480,5 +486,5 @@ class ImageTagging:
             face_locations = face_locations_self(image)
             if len(face_locations) > 0:
                 output_array.append({"image":input_image_src, "predictions":['face']})
-
+        print(output_array)
         return output_array
