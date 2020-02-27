@@ -1,2 +1,2 @@
-select distinct packshoot_images 
-from smartdata_pro.d_product_info limit 50
+select distinct img_url
+from smartdata_pro.d_product_img limit 5

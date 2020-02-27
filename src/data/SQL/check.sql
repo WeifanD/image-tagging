@@ -1,9 +1,9 @@
-alter table smartdata_pro.d_product_info drop COLUMN comment_label;
-alter table smartdata_pro.d_product_info add COLUMN comment_label varchar
+-- alter table smartdata_pro.d_product_image drop COLUMN tags;
+alter table smartdata_pro.d_product_image add COLUMN tags varchar
 ;
 
 
-UPDATE smartdata_pro.d_product_info b
-SET    comment_label = a.content
+UPDATE smartdata_pro.d_product_img b
+SET    tags = a.Col2
 FROM   image a
-WHERE  a.model_code = cast(b.model_code as varchar);
+WHERE  a.Col1 = b.img_id;
