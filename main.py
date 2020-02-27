@@ -60,6 +60,7 @@ for dict1 in prediction_face_array:
 			prediction_face_array.remove(dict1)
 			output_array.remove(dict2)
 if len(new_dicts) > 0:
+	print(new_dicts, prediction_face_array, output_array)
 	output_array = new_dicts.extend(prediction_face_array.extend(output_array))
 else:
 	output_array = prediction_face_array + output_array
