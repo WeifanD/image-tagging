@@ -385,7 +385,7 @@ class ImageTagging:
         return custom_objects_dict
 
 
-    def detectCustomObjectsFromImage(self, custom_objects=None, sent_images_array="", minimum_percentage_probability = 50):
+    def detectCustomObjectsFromImage(self, custom_objects=None, sent_images_array="", minimum_percentage_probability = 70):
 
         if (self.__modelLoaded == False):
             raise ValueError("You must call the loadModel() function before making object detection.")
