@@ -26,7 +26,7 @@ custom = detector.CustomObjects(person=True)
 # get valid image src data
 result = db_send_update_from_file(conn, "src/data/SQL/get_image_url.sql")
 img_src_array = [row[0] for row in result if row[0] is not None and len(row[0]) > 10]
-print(img_src_array)
+#print(img_src_array)
 for img_src in img_src_array:
 	response = requests.get(img_src)
 	image = Image.open(BytesIO(response.content))
@@ -49,7 +49,7 @@ for dict1 in detector_output_array:
 			detector_output_array.remove(dict1)
 			prediction_output_array.remove(dict2)
 if len(new_dicts) > 0:
-        print(new_dicts, detector_output_array, prediction_output_array)
+#        print(new_dicts, detector_output_array, prediction_output_array)
         output_array = new_dicts + detector_output_array + prediction_output_array
 else:
 	output_array = detector_output_array + prediction_output_array
@@ -66,7 +66,7 @@ if len(new_dicts) > 0:
 else:
 	output_array = prediction_face_array + output_array
 
-print(output_array)
+#print(output_array)
 
 # convert list output to string type
 output_str_array, img_url_array = [], []
@@ -83,9 +83,9 @@ import json
 df_json = json.loads(df_insert.to_json(orient='records'))
 
 # load image output data
-#db_send_update_from_file(conn, "src/data/SQL/create_image_tmp_table.sql")
-#for json in df_json:
-#	print(json)
-#	db_send_update_from_file(conn, "src/data/SQL/insert_image_output.sql", json)
-#print(pd.read_sql_query(con = conn, sql = 'select * from smartdata_pro.image;'))
+db_send_update_from_file(conn, "src/data/SQL/create_image_tmp_table.sql")
+for json in df_json:
+	print(json)
+	db_send_update_from_file(conn, "src/data/SQL/insert_image_output.sql", json)
+print(pd.read_sql_query(con = conn, sql = 'select * from smartdata_pro.image;'))
 # print(db_get_query_from_file(conn, "src/data/SQL/check.sql"))
