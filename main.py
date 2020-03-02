@@ -26,11 +26,13 @@ custom = detector.CustomObjects(person=True)
 # get valid image src data
 result = db_send_update_from_file(conn, "src/data/SQL/get_image_url.sql")
 img_src_array = [row[0] for row in result if row[0] is not None and len(row[0]) > 10]
+#print(img_src_array)
 for img_src in img_src_array:
 	response = requests.get(img_src)
 	image = Image.open(BytesIO(response.content))
 	if image.mode != 'RGB':
 		img_src_array.remove(img_src)
+print('valid images {} '.format(len(img_src_array)))
 
 # recognize image objects
 prediction_output_array = prediction.predictMultipleImages(img_src_array, input_type="stream")
@@ -47,7 +49,7 @@ for dict1 in detector_output_array:
 			detector_output_array.remove(dict1)
 			prediction_output_array.remove(dict2)
 if len(new_dicts) > 0:
-        print(new_dicts, detector_output_array, prediction_output_array)
+#        print(new_dicts, detector_output_array, prediction_output_array)
         output_array = new_dicts + detector_output_array + prediction_output_array
 else:
 	output_array = detector_output_array + prediction_output_array
@@ -64,7 +66,7 @@ if len(new_dicts) > 0:
 else:
 	output_array = prediction_face_array + output_array
 
-print(output_array)
+#print(output_array)
 
 # convert list output to string type
 output_str_array, img_url_array = [], []
