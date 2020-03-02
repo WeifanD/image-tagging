@@ -22,8 +22,6 @@ def get_redshift_conn(env):
 def get_datalake_conn():
     user_name = os.environ.get('datalake_user')
     password = os.environ.get('datalake_pwd')
-    user_name = 'bdai23'
-    password = '123456'
     engine = create_engine('postgresql://' + user_name + ':' + password + '@10.50.8.227:60906/dw') \
         .execution_options(autocommit=True)
     conn = engine.connect()
