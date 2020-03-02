@@ -29,7 +29,7 @@ for i, item in enumerate(data):
 	if len(string) > 40 and re.search('\\d', string) is None:
 		string = string.replace('|','')
 		desc = '#' + titles[i%4] + '#' + string
-		dict = {'tmall_id': tmall_id, 'model_code':model_code, 'desc': desc}
+		dict = {'tmall_id': tmall_id, 'model_code':model_code, 'text_content': desc}
 		lst.append(dict)
 		file.write(json.dumps(lst, ensure_ascii=False) + "\n")
 	lst_of_dicts.append(dict)
