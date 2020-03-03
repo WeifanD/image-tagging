@@ -6,9 +6,10 @@ THIS_FILE=$(basename "$0")
 THIS_PATH="$THIS_DIR/$THIS_FILE"
 echo "`date` Info: This file $THIS_FILE start running on $THIS_DIR..."
 
+cd /home/admin/projects/image-tagging
 source env/bin/activate
 echo "run main_text.py for text"
 python main_text.py
 
 echo "run main.py for img"
-python main.py
+python main.py 
