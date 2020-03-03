@@ -25,7 +25,7 @@ TRUNCATE smartdata_pro.d_content_img;
 INSERT INTO smartdata_pro.d_content_img 
 SELECT
 i.*,
-ic.n 
+ic.n_img
 FROM
 	img i
 	INNER JOIN ( SELECT * FROM img_count ) ic ON i.tmall_id = ic.tmall_id;
