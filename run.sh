@@ -8,8 +8,10 @@ echo "`date` Info: This file $THIS_FILE start running on $THIS_DIR..."
 
 cd /home/admin/projects/image-tagging
 source env/bin/activate
-echo "run main_text.py for text"
+echo "`date` run main_text.py for text"
 python main_text.py
 
-echo "run main.py for img"
+echo "`date` run main.py for img"
 python main.py 
+
+echo "`date` done"
