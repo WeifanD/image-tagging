@@ -1,1 +1,0 @@
-CREATE TABLE smartdata_pro.image (img_url varchar, tags varchar);

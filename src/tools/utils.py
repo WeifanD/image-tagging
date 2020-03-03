@@ -50,7 +50,7 @@ def get_sql_query_from_file(conn, sql_file, params = {}) :
     template = f.read().replace('}}', ' | sqlsafe }}')
     f.close()
     query = j.prepare_query(template, params)[0]
-    print(query)
+    # print(query)
 
 def get_S3_info(env) :
     s3_credentials = os.environ.get('AWS_ACCESS_KEY_ID')    
