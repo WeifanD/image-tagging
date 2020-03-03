@@ -36,4 +36,4 @@ for i, item in enumerate(data):
 file.close()
 output = pd.DataFrame(lst_of_dicts)
 output.to_sql('d_content_text', con=conn, if_exists='replace', index=False, schema='bi')
-db_send_update_from_file(conn, "src/data/update_content_text.sql")
+db_send_update_from_file(conn, "src/data/SQL/update_content_text.sql")
