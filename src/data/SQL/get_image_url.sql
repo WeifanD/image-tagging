@@ -22,7 +22,8 @@ GROUP BY
 	tmall_id;
 	
 TRUNCATE smartdata_pro.d_content_img;
-INSERT INTO smartdata_pro.d_content_img AS SELECT
+INSERT INTO smartdata_pro.d_content_img 
+SELECT
 i.*,
 ic.n 
 FROM
