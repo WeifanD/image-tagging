@@ -1,3 +1,12 @@
+-- CREATE TABLE "smartdata_pro"."d_content_img" (
+--   "tmall_id" varchar COLLATE "pg_catalog"."default",
+--   "model_code" varchar COLLATE "pg_catalog"."default",
+--   "img_source" varchar COLLATE "pg_catalog"."default",
+--   "img_url" varchar COLLATE "pg_catalog"."default",
+--   "n_img" int4
+-- )
+-- ;
+
 -- alter table smartdata_pro.d_content_image drop COLUMN tags;
 alter table smartdata_pro.d_content_image add COLUMN tags varchar
 ;

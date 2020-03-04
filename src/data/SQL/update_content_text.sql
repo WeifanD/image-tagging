@@ -11,4 +11,4 @@ alter table smartdata_pro.d_content add COLUMN text varchar
 UPDATE smartdata_pro.d_content b
 SET    text = a.text
 FROM   bi.d_content_text a
-WHERE  a.tmall_id = b.tmall_id;
+WHERE  a.tmall_id = b.tmall_id and a.model_code=b.model_code;
