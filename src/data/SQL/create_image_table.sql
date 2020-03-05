@@ -1,1 +1,1 @@
-CREATE temp table image (img_url varchar, tags varchar);
+CREATE if not exists table bi.d_content_img (img_url varchar, tags varchar);
