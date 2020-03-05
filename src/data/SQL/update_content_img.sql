@@ -8,8 +8,8 @@
 -- ;
 
 -- alter table smartdata_pro.d_content_img drop COLUMN tags;
-alter table smartdata_pro.d_content_img add COLUMN tags varchar
-;
+-- alter table smartdata_pro.d_content_img add COLUMN tags varchar
+-- ;
 
 
 UPDATE smartdata_pro.d_content_img b
