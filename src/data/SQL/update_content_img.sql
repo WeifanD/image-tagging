@@ -13,9 +13,9 @@
 
 
 UPDATE smartdata_pro.d_content_img b
-SET    tags = a.img_url
+SET    tags = a.tags
 FROM   bi.d_content_img a
-WHERE  a.img_url = b.tags;
+WHERE  a.img_url = b.img_url;
 
 
 -- select tmall_id, string_agg(img_url, '@@') AS img_url_array
