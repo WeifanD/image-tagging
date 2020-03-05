@@ -30,4 +30,4 @@ FROM
 	img i
 	INNER JOIN ( SELECT * FROM img_count ) ic ON i.tmall_id = ic.tmall_id;
 
-select distinct img_url from smartdata_pro.d_content_img; 
+select distinct img_url from smartdata_pro.d_content_img limit 10; 

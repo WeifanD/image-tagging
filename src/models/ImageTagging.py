@@ -6,6 +6,8 @@ from io import BytesIO
 from src.models.keras_retinanet.models.resnet import resnet50_retinanet
 from src.models.image import *
 import face_recognition
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 from tensorflow.python.keras.layers import Input, Conv2D, MaxPool2D, Activation, concatenate, Dropout
