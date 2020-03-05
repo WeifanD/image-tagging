@@ -34,6 +34,6 @@ FROM
 SELECT DISTINCT
 	img_url 
 FROM
-	smartdata_pro.d_content_img
-	A INNER JOIN ( SELECT DISTINCT tmall_id, model_code FROM "d_content" WHERE TEXT IS NOT NULL ) b ON A.tmall_id = b.tmall_id 
-	AND A.model_code = b.model_code ; 
+	smartdata_pro.d_content_img limit 5
+	-- A INNER JOIN ( SELECT DISTINCT tmall_id, model_code FROM bi."d_content" WHERE TEXT IS NOT NULL ) b ON A.tmall_id = b.tmall_id 
+	-- AND A.model_code = b.model_code ; 
