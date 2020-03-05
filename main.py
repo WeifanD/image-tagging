@@ -87,5 +87,5 @@ db_send_update_from_file(conn, "src/data/SQL/create_image_table.sql")
 for json in df_json:
 	print(json)
 	db_send_update_from_file(conn, "src/data/SQL/insert_image_data.sql", json)
-print(pd.read_sql_query(con = conn, sql = 'select * from image;'))
+print(pd.read_sql_query(con = conn, sql = 'select * from bi.d_content_img;'))
 db_send_update_from_file(conn, "src/data/SQL/update_content_img.sql")

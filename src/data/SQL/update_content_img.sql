@@ -14,7 +14,7 @@
 
 UPDATE smartdata_pro.d_content_img b
 SET    tags = a.img_url
-FROM   bi.content_img a
+FROM   bi.d_content_img a
 WHERE  a.img_url = b.tags;
 
 
