@@ -7,15 +7,15 @@
 -- )
 -- ;
 
--- alter table smartdata_pro.d_content_image drop COLUMN tags;
-alter table smartdata_pro.d_content_image add COLUMN tags varchar
+-- alter table smartdata_pro.d_content_img drop COLUMN tags;
+alter table smartdata_pro.d_content_img add COLUMN tags varchar
 ;
 
 
-UPDATE smartdata_pro.d_content_image b
-SET    tags = a.Col2
+UPDATE smartdata_pro.d_content_img b
+SET    tags = a.img_url
 FROM   image a
-WHERE  a.Col1 = b.img_url;
+WHERE  a.img_url = b.tags;
 
 
 -- select tmall_id, string_agg(img_url, '@@') AS img_url_array
@@ -26,6 +26,6 @@ WHERE  a.Col1 = b.img_url;
 -- ;
 
 -- UPDATE smartdata_pro.d_content b
--- SET    img_url_array = a.Col2
+-- SET    img_url_array = a.tags
 -- FROM   image a
--- WHERE  a.Col1 = b.img_url;
+-- WHERE  a.img_url = b.tags;
