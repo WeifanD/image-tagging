@@ -1,1 +1,1 @@
-CREATE if not exists table bi.d_content_img (img_url varchar, tags varchar);
+create table if not exists bi.d_content_img (img_url varchar, tags varchar);
