@@ -246,6 +246,7 @@ class ImageTagging:
                 try:
                     response = req.get(image_input)
                     image_input = Image.open(BytesIO(response.content))
+                    image_input = image_input.convert(mode='RGB') ## ensure image shape (1,224,224,3)
                     image_input = image_input.resize((self.__input_image_size, self.__input_image_size))
                     image_input = np.expand_dims(image_input, axis=0)
                     image_to_predict = image_input.copy()
@@ -309,6 +310,7 @@ class ImageTagging:
                 try:
                     response = req.get(image_input)
                     image_input = Image.open(BytesIO(response.content))
+                    image_input = image_input.convert(mode='RGB') ## ensure image shape (1,224,224,3)
                     image_input = image_input.resize((self.__input_image_size, self.__input_image_size))
                     image_input = np.expand_dims(image_input, axis=0)
                     image_to_predict = image_input.copy()
@@ -338,7 +340,6 @@ class ImageTagging:
                     each_image_details["predictions"] = prediction_results
                     # each_image_details["percentage_probabilities"] = prediction_probabilities
                     output_array.append(each_image_details)
-        print(output_array)
 
         return output_array
 
