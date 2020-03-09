@@ -46,7 +46,7 @@ class ImageTagging:
                    7: 'truck', 8: 'boat', 9: 'traffic_light', 10: 'fire hydrant', 11: 'stop_sign', 12: 'parking_meter',
                    13: 'bench', 14: 'bird', 15: 'cat', 16: 'dog', 17: 'horse', 18: 'sheep', 19: 'cow', 20: 'elephant',
                    21: 'bear', 22: 'zebra', 23: 'giraffe', 24: 'backpack', 25: 'umbrella', 26: 'handbag', 27: 'tie',
-                   28: 'suitcase', 29: 'frisbee', 30: 'skis', 31: 'snowboard', 32: 'sports ball', 33: 'kite',
+                   28: 'suitcase', 29: 'frisbee', 30: 'skis', 31: 'snowboard', 32: 'sports_ball', 33: 'kite',
                    34: 'baseball_bat', 35: 'baseball_glove', 36: 'skateboard', 37: 'surfboard', 38: 'tennis_racket',
                    39: 'bottle', 40: 'wine_glass', 41: 'cup', 42: 'fork', 43: 'knife', 44: 'spoon', 45: 'bowl',
                    46: 'banana', 47: 'apple', 48: 'sandwich', 49: 'orange', 50: 'broccoli', 51: 'carrot', 52: 'hot_dog',
