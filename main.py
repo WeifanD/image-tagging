@@ -6,6 +6,8 @@ import pandas as pd
 import requests
 from PIL import Image
 from io import BytesIO
+from datetime import datetime
+
 
 
 execution_path = os.getcwd()
@@ -35,9 +37,12 @@ for img_src in img_src_array:
 print('valid images {} '.format(len(img_src_array)))
 
 # recognize image objects
-prediction_output_array = prediction.predictMultipleImages(img_src_array, input_type="stream")
-prediction_face_array = prediction.predictFace(img_src_array)
 detector_output_array = detector.detectCustomObjectsFromImage(sent_images_array=img_src_array, custom_objects=custom)
+print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"),'detection finished')
+prediction_output_array = prediction.predictMultipleImages(img_src_array, input_type="stream")
+print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 'prediction finished')
+prediction_face_array = prediction.predictFace(img_src_array)
+print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"),'face prediction finished')
 # prediction_output_array = [{'image': 'https://img.alicdn.com/bao/uploaded/i4/352469034/O1CN01Ze33zj2GbcZ8QX9B1_!!352469034.jpg', 'predictions': ['punching_bag']}, {'image': 'https://img.alicdn.com/bao/uploaded/i4/352469034/O1CN01Iwqd9C2GbcYRLuKTu_!!0-item_pic.jpg', 'predictions': ['running_shoe']}]
 # detector_output_array = [{'image': 'https://img.alicdn.com/bao/uploaded/i1/352469034/TB2w5IvXVXXXXcQXXXXXXXXXXXX_!!352469034.jpg', 'predictions': ['person']}]
 
