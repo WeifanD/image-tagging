@@ -53,7 +53,7 @@ class ImageTagging:
                    53: 'pizza', 54: 'donut', 55: 'cake', 56: 'chair', 57: 'couch', 58: 'potted_plant', 59: 'bed',
                    60: 'dining_table', 61: 'toilet', 62: 'tv', 63: 'laptop', 64: 'mouse', 65: 'remote', 66: 'keyboard',
                    67: 'cell_phone', 68: 'microwave', 69: 'oven', 70: 'toaster', 71: 'sink', 72: 'refrigerator',
-                   73: 'book', 74: 'clock', 75: 'vase', 76: 'scissors', 77: 'teddy_bear', 78: 'hair_drier',
+                   73: 'book', 74: 'clock', 75: 'vase', 76: 'scissors', 77: 'teddy_bear', 78: 'hair_dryer',
                    79: 'toothbrush'}
 
 
