@@ -9,7 +9,7 @@ echo "`date` Info: This file $THIS_FILE start running on $THIS_DIR..."
 cd /home/admin/projects/image-tagging
 source env/bin/activate
 echo "`date` run main_text.py for text"
-python main_text.py
+#python main_text.py
 
 echo "`date` run main.py for img"
 python main.py 

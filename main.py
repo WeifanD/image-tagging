@@ -64,7 +64,8 @@ else:
 new_dicts = []
 for dict1 in prediction_face_array:
 	for dict2 in output_array:
-		if dict1['image'] == dict2['image']:
+		print(dict1,dict2)
+		if dict1['image'] == dict2['image'] and dict1 in prediction_face_array and dict2 in output_array:
 			new_dicts.append(mergeDict(dict1, dict2))
 			prediction_face_array.remove(dict1)
 			output_array.remove(dict2)
@@ -92,7 +93,10 @@ df_json = json.loads(df_insert.to_json(orient='records'))
 # load image output data
 db_send_update_from_file(conn, "src/data/SQL/create_image_table.sql")
 for json in df_json:
-	print(json)
-	db_send_update_from_file(conn, "src/data/SQL/insert_image_data.sql", json)
+	try:
+		print(json)
+		db_send_update_from_file(conn, "src/data/SQL/insert_image_data.sql", json)
+	except:
+		continue
 # print(pd.read_sql_query(con = conn, sql = 'select * from bi.d_content_img;'))
 db_send_update_from_file(conn, "src/data/SQL/update_content_img.sql")

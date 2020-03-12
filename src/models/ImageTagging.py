@@ -294,7 +294,7 @@ class ImageTagging:
         output_array = []
 
         for image_input in sent_images_array:
-            print(image_input)
+     
             image_src = image_input
             prediction_results = []
             prediction_probabilities = []
@@ -340,7 +340,7 @@ class ImageTagging:
                     each_image_details["predictions"] = prediction_results
                     # each_image_details["percentage_probabilities"] = prediction_probabilities
                     output_array.append(each_image_details)
-
+        print(output_array)
         return output_array
 
 
