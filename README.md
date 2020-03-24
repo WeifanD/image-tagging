@@ -1,4 +1,4 @@
-## install
+## Setup
 ### dlib error
 首先，安装gcc和gcc-c++
 ```
@@ -26,3 +26,6 @@ pip install dlib -i https://pypi.douban.com/simple/
 
 ### centos python No module named 'tkinter'解决办法
 `sudo yum install python36-tkinter`
+
+## Evaluation
+

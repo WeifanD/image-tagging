@@ -340,7 +340,8 @@ class ImageTagging:
                     each_image_details["predictions"] = prediction_results
                     # each_image_details["percentage_probabilities"] = prediction_probabilities
                     output_array.append(each_image_details)
-        print(output_array)
+        
+        print('predicted {} images with objects'.format(length(output_array)))
         return output_array
 
 
@@ -459,7 +460,8 @@ class ImageTagging:
                         each_image_details["predictions"] = prediction_results
                         # each_image_details["percentage_probabilities"] = prediction_probabilities
                         output_array.append(each_image_details)
-                print(output_array)
+
+                print('detected {} images with person'.format(len(output_array)))
 
                 return output_array
 
@@ -489,5 +491,7 @@ class ImageTagging:
             face_locations = face_locations_self(image)
             if len(face_locations) > 0:
                 output_array.append({"image":input_image_src, "predictions":['face']})
-        print(output_array)
+
+        print('detected {} images with face'.format(length(output_array)))
+
         return output_array
