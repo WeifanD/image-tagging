@@ -1,0 +1,1 @@
+select universe_id from smartdata_pro.d_product_info;

@@ -1,14 +1,23 @@
-import numpy as np
-import cv2
+# encoding=utf-8
+import re
+import jieba
+import jieba.posseg as pseg
 
-img = cv2.imread('002.jpg') # Read in the image and convert to grayscale
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-gray = 255*(gray < 128).astype(np.uint8) # To invert the text to white 255
-coords = cv2.findNonZero(gray) # Find all non-zero points (text)
-x, y, w, h = cv2.boundingRect(coords) # Find minimum spanning bounding box
-rect = img[y:y+h, x:x+w] # Crop the image - note we do this on the original image
-rect = cv2.resize(rect, (1000, 700), interpolation=cv2.INTER_CUBIC)
-cv2.imshow("Cropped", rect) # Show it
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-cv2.imwrite("rect2.jpg", rect) # Save the image
+line = '迪卡侬滑板车儿童1-3-6岁男女孩单脚小孩宝宝折叠溜溜划板OXELO-S'
+
+def compress_text(text: str):
+    jieba.enable_paddle()  # 启动paddle模式。 0.40版之后开始支持，早期版本不支持
+    temp1 = list(jieba.cut(text, cut_all=False))
+
+    char_list = [i for i in list(jieba.cut(text, cut_all=False)) if i != ' ']  # 把字符串转化列表自动按单个字符分词了
+    # print(char_list)
+
+    list1 = []
+    list1.append(char_list[0])
+    for char in char_list:
+        if char not in list1:
+            list1.append(char)
+
+    return ''.join(list1)
+
+print(compress_text(line))
